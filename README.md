@@ -18,6 +18,8 @@ This project is a CCT Zigbee device based on the ESP32-H2 / ESP32-C6
 
 | GPIO   | Function              |
 | ------ | --------------------- |
-| GPIO8  | DHT22 data            |
-| GPIO0  | Binary output (LED)   |
-| GPIO12 | Binary input (Button) |
+| ~~GPIO8~~  | ~~DHT22 data~~            |
+| ~~GPIO0~~  | ~~Binary output (LED)~~   |
+| ~~GPIO12~~ | ~~Binary input (Button)~~ |
+| GPIO3 | WARM LED PWM out |
+| GPIO5 | COLD LED PWM out |
