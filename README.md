@@ -8,14 +8,6 @@ This project is a Custom color temperature (CCT) Zigbee device based on the ESP3
 - [x] Level control
 - [ ] Temperature sensor
 
-![Alt text](image.png)
-
-## Hardware
-
-- [ESP32-H2](https://www.espressif.com/en/products/socs/esp32-h2)
-- or
-- [ESP32-C6](https://www.espressif.com/en/products/socs/esp32-c6)
-
 > ## Clusters
 > * Basic_cluster
 > * Identify_cluster
@@ -23,6 +15,18 @@ This project is a Custom color temperature (CCT) Zigbee device based on the ESP3
 > * Temperature_meas_cluster
 > * Level_cluster
 > * Color_cluster
+
+![Alt text](image.png)
+
+## Hardware
+
+- [ESP32-H2](https://www.espressif.com/en/products/socs/esp32-h2)
+
+ or
+
+- [ESP32-C6](https://www.espressif.com/en/products/socs/esp32-c6)
+
+
 
 
 ## GPIO
