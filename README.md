@@ -1,25 +1,34 @@
-# ESP32-H2 Demo Zigbee Device
+# ESP32-H2 Zigbee Device
 
-This project is a CCT Zigbee device based on the ESP32-H2 / ESP32-C6
+This project is a Custom color temperature (CCT) Zigbee device based on the ESP32-H2 / ESP32-C6
 
 ## Features
 
-- [ ] Binary switch
-- [ ] Binary input
-- [x] Custom color temperature (CCT) light
+- [x] CCT light
+- [x] Level control
+- [ ] Temperature sensor
 
 ![Alt text](image.png)
 
 ## Hardware
 
-- [ESP32-H2](https://www.espressif.com/en/products/socs/h2/overview)
+- [ESP32-H2](https://www.espressif.com/en/products/socs/esp32-h2)
+or
+- [ESP32-C6](https://www.espressif.com/en/products/socs/esp32-c6)
+
+> ## Clusters
+> Basic_cluster
+> Identify_cluster
+> On_off_cluster
+> Temperature_meas_cluster
+> Level_cluster
+> Color_cluster
+
 
 ## GPIO
 
 | GPIO   | Function              |
 | ------ | --------------------- |
-| ~~GPIO8~~  | ~~DHT22 data~~            |
-| ~~GPIO0~~  | ~~Binary output (LED)~~   |
 | ~~GPIO12~~ | ~~Binary input (Button)~~ |
-| GPIO3 | WARM LED PWM out |
-| GPIO5 | COLD LED PWM out |
+| GPIO3 | WARM LED PWM output |
+| GPIO5 | COLD LED PWM output |
