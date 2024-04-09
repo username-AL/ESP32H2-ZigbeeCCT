@@ -21,9 +21,7 @@ This project is a Custom color temperature (CCT) Zigbee device based on the ESP3
 ## Hardware
 
 - [ESP32-H2](https://www.espressif.com/en/products/socs/esp32-h2)
-
  or
-
 - [ESP32-C6](https://www.espressif.com/en/products/socs/esp32-c6)
 
 
