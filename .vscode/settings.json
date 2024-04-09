@@ -1,0 +1,36 @@
+{
+  "idf.portWin": "COM3",
+  "idf.adapterTargetName": "esp32h2",
+  "idf.openOcdConfigs": [
+    "board/esp32h2-bridge.cfg"
+  ],
+  "files.associations": {
+    "*.vhd": "vhdl",
+    "*.yaml": "home-assistant",
+    "esp_zb_light.h": "c",
+    "am2302_rmt.h": "c",
+    "stdio.h": "c",
+    "ledc.h": "c",
+    "esp_err.h": "c",
+    "charconv": "c",
+    "chrono": "c",
+    "optional": "c",
+    "format": "c",
+    "ratio": "c",
+    "system_error": "c",
+    "array": "c",
+    "functional": "c",
+    "tuple": "c",
+    "type_traits": "c",
+    "utility": "c",
+    "esp_zigbee_ha_standard.h": "c",
+    "gpio.h": "c",
+    "string.h": "c",
+    "task.h": "c",
+    "freertos.h": "c",
+    "esp_log.h": "c",
+    "esp_check.h": "c",
+    "nvs_flash.h": "c"
+  },
+  "idf.flashType": "UART"
+}
