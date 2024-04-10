@@ -1,11 +1,13 @@
 # ESP32-H2 Zigbee CCT Device
 
 This project is a Custom color temperature (CCT) Zigbee device based on the ESP32-H2 / ESP32-C6
+with property saving (color temp and power lavel) after 5 seconds without changes
 
 ## Features
 
 - [x] CCT light
 - [x] Level control
+- [x] Property saving
 - [ ] Binary input
 - [ ] Temperature sensor
 
@@ -24,7 +26,7 @@ This project is a Custom color temperature (CCT) Zigbee device based on the ESP3
 
 --------
 
-![Base view](image1.png) ![Power control](image2.png)![Color temp control](image3.png)
+![Base view](/images/image1.png) ![Power control](/images/image2.png)![Color temp control](/images/image3.png)
 -------
 ## Hardware
 
