@@ -465,6 +465,6 @@ void app_main(void)
     xTaskCreate(PWM_task, "PWM_task", 4096, NULL, 5, NULL);
     xTaskCreate(esp_zb_task, "Zigbee_main", 4096, NULL, 5, NULL);
 
-    xTaskCreate(AntiZB_task, "AntiZB_task", 4096, NULL, 5, NULL);
+  //  xTaskCreate(AntiZB_task, "AntiZB_task", 4096, NULL, 5, NULL);
 
 }
