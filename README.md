@@ -26,7 +26,7 @@ with property saving (color temp and power lavel) after 5 seconds without change
 
 --------
 
-![Base view](/images/image1.png) ![Power control](/images/image2.png)![Color temp control](/images/image3.png)
+![Base view](images/image1.png) ![Power control](images/image2.png)![Color temp control](images/image3.png)
 -------
 ## Hardware
 
