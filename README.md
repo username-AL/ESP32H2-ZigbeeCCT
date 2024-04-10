@@ -1,7 +1,7 @@
 # ESP32-H2 Zigbee CCT Device
 
 This project is a Custom color temperature (CCT) Zigbee device based on the ESP32-H2 / ESP32-C6
-with property saving (color temp and power lavel) after 5 seconds without changes
+with property saving (color temp and power level) after 5 seconds without changes
 
 ## Features
 
@@ -40,7 +40,7 @@ with property saving (color temp and power lavel) after 5 seconds without change
 
 | GPIO   | Function              |
 | ------ | --------------------- |
-| ~~GPIO8~~ | ~~1-Wire sensor (Dallas)~~ |
-| ~~GPIO12~~ | ~~Binary input (Button)~~ |
+| ~~GPIO12~~ | ~~1-Wire sensor (Dallas)~~ |
+| ~~GPIO8~~ | ~~Binary input (Button)~~ |
 | GPIO3 | WARM LED PWM output |
 | GPIO5 | COLD LED PWM output |
