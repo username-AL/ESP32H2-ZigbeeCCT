@@ -6,18 +6,26 @@ This project is a Custom color temperature (CCT) Zigbee device based on the ESP3
 
 - [x] CCT light
 - [x] Level control
+- [ ] Binary input
 - [ ] Temperature sensor
 
-> ## Clusters
-> * Basic_cluster
-> * Identify_cluster
-> * On_off_cluster
-> * Temperature_meas_cluster
-> * Level_cluster
-> * Color_cluster
+ ## Clusters
 
-![Alt text](image.png)
+ * Basic_cluster
+ * Identify_cluster
+ * On_off_cluster
+ * Temperature_meas_cluster
+   - No sensor work yet
+ * Level_cluster
+ * Color_cluster
+   - Color temperature only
 
+
+
+--------
+
+![Base view](image1.png) ![Power control](image2.png)![Color temp control](image3.png)
+-------
 ## Hardware
 
 - [ESP32-H2](https://www.espressif.com/en/products/socs/esp32-h2)
@@ -30,6 +38,7 @@ This project is a Custom color temperature (CCT) Zigbee device based on the ESP3
 
 | GPIO   | Function              |
 | ------ | --------------------- |
+| ~~GPIO8~~ | ~~1-Wire sensor (Dallas)~~ |
 | ~~GPIO12~~ | ~~Binary input (Button)~~ |
 | GPIO3 | WARM LED PWM output |
 | GPIO5 | COLD LED PWM output |
