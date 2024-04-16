@@ -32,7 +32,7 @@ with property saving (color temp and power level) after 5 seconds without change
 
 - [ESP32-H2](https://www.espressif.com/en/products/socs/esp32-h2)
 
-or
+    or
 - [ESP32-C6](https://www.espressif.com/en/products/socs/esp32-c6)
 
 
