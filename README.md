@@ -25,8 +25,10 @@ with property saving (color temp and power level) after 5 seconds without change
 
 
 --------
+<img src="images/image1_1.png" alt="drawing" width="300"/>
+<img src="images/image2.png" alt="drawing" width="300"/>
+<img src="images/image3.png" alt="drawing" width="300"/>
 
-![Base view](images/image1.png) ![Power control](images/image2.png)![Color temp control](images/image3.png)
 -------
 ## Hardware
 

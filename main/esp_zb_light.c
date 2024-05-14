@@ -151,8 +151,7 @@ void Tempetature_task(void *pvParameters){
 
         float temp = -100;
         ESP_ERROR_CHECK(temperature_sensor_get_celsius(temp_sensor, &temp));
-        ESP_ERROR_CHECK(temperature_sensor_disable(temp_sensor));
-        
+        ESP_ERROR_CHECK(temperature_sensor_disable(temp_sensor));        
 
         uint16_t temperature = (uint16_t)(temp * 100);
         reportAttribute(HA_ESP_LIGHT_ENDPOINT, ESP_ZB_ZCL_CLUSTER_ID_TEMP_MEASUREMENT, ESP_ZB_ZCL_ATTR_TEMP_MEASUREMENT_VALUE_ID, &temperature, 2);
