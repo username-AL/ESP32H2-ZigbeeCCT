@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "driver/ledc.h"
+#include <driver/temperature_sensor.h>
 
 static const char *TAG = "CCT";
 #define H_LED_IO        (3) 
@@ -128,9 +129,40 @@ void PWM_task(void *pvParameters)
 
             if((cycles_without_changes >= 50) && (!saved)){ SaveToNVS(); saved = true; }
         }
+        else{
+            ESP_ERROR_CHECK(ledc_set_duty(PWM_MODE, H_CHANNEL, 0));
+            ESP_ERROR_CHECK(ledc_set_duty(PWM_MODE, C_CHANNEL, 0));                
+            ESP_ERROR_CHECK(ledc_update_duty(PWM_MODE, H_CHANNEL));
+            ESP_ERROR_CHECK(ledc_update_duty(PWM_MODE, C_CHANNEL));
+        }
         vTaskDelay(100 / portTICK_PERIOD_MS);    
     }
 }
+
+void Tempetature_task(void *pvParameters){
+
+    temperature_sensor_handle_t temp_sensor = NULL;
+    temperature_sensor_config_t temp_sensor_config = TEMPERATURE_SENSOR_CONFIG_DEFAULT(10, 50);
+    ESP_ERROR_CHECK(temperature_sensor_install(&temp_sensor_config, &temp_sensor));
+
+    while (true)
+    {
+        ESP_ERROR_CHECK(temperature_sensor_enable(temp_sensor));
+
+        float temp = -100;
+        ESP_ERROR_CHECK(temperature_sensor_get_celsius(temp_sensor, &temp));
+        ESP_ERROR_CHECK(temperature_sensor_disable(temp_sensor));
+        
+
+        uint16_t temperature = (uint16_t)(temp * 100);
+        reportAttribute(HA_ESP_LIGHT_ENDPOINT, ESP_ZB_ZCL_CLUSTER_ID_TEMP_MEASUREMENT, ESP_ZB_ZCL_ATTR_TEMP_MEASUREMENT_VALUE_ID, &temperature, 2);
+        ESP_LOGI("TMP", "t(%i)", (int)temperature); 
+            
+        vTaskDelay(10000 / portTICK_PERIOD_MS); 
+    }
+    
+}
+
 
 static void bdb_start_top_level_commissioning_cb(uint8_t mode_mask)
 {
@@ -230,6 +262,7 @@ void esp_zb_app_signal_handler(esp_zb_app_signal_t *signal_struct)
                      extended_pan_id[3], extended_pan_id[2], extended_pan_id[1], extended_pan_id[0],
                      esp_zb_get_pan_id(), esp_zb_get_current_channel());
             //xTaskCreate(button_task, "button_task", 4096, NULL, 5, NULL);
+            xTaskCreate(Tempetature_task, "Temperature_task", 4096, NULL, 5, NULL);
             
         }
         else
@@ -259,9 +292,9 @@ static void esp_zb_task(void *pvParameters)
     uint32_t ApplicationVersion = 0x0001;
     uint32_t StackVersion = 0x0002;
     uint32_t HWVersion = 0x0002;
-    uint8_t ManufacturerName[] = {8, 'D', 't', 'k', 'a', 'H', 'o', 't', 'e'}; // warning: this is in format {length, 'string'} :
+    uint8_t ManufacturerName[] = {8, 'N', 'i', 'k', 'a', 'H', 'o', 'm', 'e'}; // warning: this is in format {length, 'string'} :
     uint8_t ModelIdentifier[] = {5, 'A', 'L', 'a', 'm', 'p'};
-    uint8_t DateCode[] = {8, '2', '0', '2', '4', '0', '8', '2', '6'};
+    uint8_t DateCode[] = {8, '2', '0', '2', '4', '0', '5', '0', '3'};
     esp_zb_attribute_list_t *esp_zb_basic_cluster = esp_zb_basic_cluster_create(&basic_cluster_cfg);
     esp_zb_basic_cluster_add_attr(esp_zb_basic_cluster, ESP_ZB_ZCL_ATTR_BASIC_APPLICATION_VERSION_ID, &ApplicationVersion);
     esp_zb_basic_cluster_add_attr(esp_zb_basic_cluster, ESP_ZB_ZCL_ATTR_BASIC_STACK_VERSION_ID, &StackVersion);
@@ -464,7 +497,6 @@ void app_main(void)
     
     xTaskCreate(PWM_task, "PWM_task", 4096, NULL, 5, NULL);
     xTaskCreate(esp_zb_task, "Zigbee_main", 4096, NULL, 5, NULL);
-
   //  xTaskCreate(AntiZB_task, "AntiZB_task", 4096, NULL, 5, NULL);
 
 }
