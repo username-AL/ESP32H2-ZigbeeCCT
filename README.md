@@ -9,7 +9,7 @@ with property saving (color temp and power level) after 5 seconds without change
 - [x] Level control
 - [x] Property saving
 - [ ] Binary input
-- [ ] Temperature sensor
+- [x] Temperature sensor
 
  ## Clusters
 
@@ -17,7 +17,7 @@ with property saving (color temp and power level) after 5 seconds without change
  * Identify_cluster
  * On_off_cluster
  * Temperature_meas_cluster
-   - No sensor work yet
+   - Esp32-h2 built-in temperature sensor used
  * Level_cluster
  * Color_cluster
    - Color temperature only
